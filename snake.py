@@ -32,5 +32,4 @@ while not flag_stop:
             flag_stop = True
         if event.type == pygame.KEYDOWN:
             if event.key == K_LEFT:
-                
-
+        
