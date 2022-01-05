@@ -1,11 +1,10 @@
-
-
 class elem():
     '''Класс элемента тела змейки'''
     elemX = 0
     elemY = 0
     imgID = 1
     move = 'up' # up; down; left; right; levelUP; levelDOWN
+
 
     def __init__(self, x, y, imgID, move) -> None:
         self.elemX = x
@@ -44,14 +43,28 @@ class Snake:
     # сообщение об конфликте например замыкание
     def setMsgGameOver(self):
         return self.msgGameOver
-        
+
     # возвращает объект элемент
     def setElem(self,n=0):
         return self.allBody[n]       
+
     # добавляет элемент
     def addElem(self, elem):
         self.allBody.append(elem)
         self.countElem +=1
+
+    # количество звеньев
+    def countElements(self):
+        return self.allBody.count
+
+    # перемещение 
+    def moveSnake(self, vector):
+        def action(direct)
+
+        for el in self.countElements:
+            self.allBody[el-1] = 
+
+
     # удаляет элемент
     def delElem(self,n):
         if self.countElem > 1 : 
@@ -62,11 +75,12 @@ class Snake:
     
     # проверка на замыкание
     def conflictBody(self):
-        for i in len(self.allBody)-1:
-            if self.allBody[0].elemX == self.allBody[i].elemX and self.allBody[0].elemY == self.allBody[i].elemY:
+        cnt = len(self.allBody)
+        for i in cnt:
+            if self.allBody[cnt-1].elemX == self.allBody[i-1].elemX and self.allBody[cnt-1].elemY == self.allBody[i-1].elemY:
                 return True
         return False
-        
+
     # проверка на соответствие координат
     def isFindElem(self, x,y):
         for i in self.allBody:
