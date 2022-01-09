@@ -23,7 +23,7 @@ class elem():
         
     def getX(self,x):
         self.elemX = x
-    def getY(self,x):
+    def getY(self,y):
         self.elemY = y
     def getImgID(self,imgID):
         self.elemX = imgID   
@@ -55,14 +55,31 @@ class Snake:
 
     # количество звеньев
     def countElements(self):
-        return self.allBody.count
+        return len(self.allBody)
 
     # перемещение 
-    def moveSnake(self, vector):
-        def action(direct)
+    def moveSnake(self, direct, delta, foodx, foody):
+        """перемещает змейку, параметр eat = True соответствует поеданию
+        возвращает параметр eat"""
 
-        for el in self.countElements:
-            self.allBody[el-1] = 
+        x,y = self.allBody[-1].elemX , self.allBody[-1].elemY
+        eat = False
+        if direct == "left":
+            x -= delta
+        elif direct == "right":
+            x += delta
+        elif direct == "up":
+            y -= delta
+        elif direct == "down":
+            y += delta
+                        
+        if foodx != x or foody != y :
+            self.addElem(elem(x,y,1,direct))
+            self.delElem(0)
+        else: 
+            self.addElem(elem(x,y,1,direct))
+            eat = True
+        return eat
 
 
     # удаляет элемент
